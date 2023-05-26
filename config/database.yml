@@ -1,0 +1,14 @@
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: google_maps_production
+  pool: 5
+  username: postgres
+  password: 9927734396
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: google_maps_development
+  pool: 5
+  username: postgres
+  password: 9927734396

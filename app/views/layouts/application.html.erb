@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsGoogleMaps</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <%= javascript_include_tag 'jquery.min', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'map' %>
+    <!-- <%= javascript_importmap_tags %> -->
+  </head>
+
+  <body>
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg.html_safe, class: "alert alert-#{name}") %>
+    <% end %>
+    <%= yield %>
+    <script async defer 
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYgz93to_KfefAj2f2T85hwqVdPWgr1m0&callback=initMap&libraries=places">
+    </script>
+  </body>
+</html>

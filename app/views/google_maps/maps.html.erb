@@ -1,0 +1,36 @@
+<div id='main'>
+  <div id="search-bar">
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-30">
+          <div class="card-body table-responsive">
+            <%= form_tag root_path, method: :get do %>
+              <div class="row">
+                <% selected_field_option = params.fetch(:filter, {})[:place] %>
+                <%= select_tag 'filter[place]', options_for_select(@countries.values, selected_field_option), include_blank: '--Select a place--', class: 'form-control', id: 'select-place', required: true %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="map"></div>
+</div>
+
+<!-- <script type="text/javascript">
+  $("#select-place").on('change', function(){
+    $.ajax({
+      url: '/',
+      method: 'GET',
+      data: {
+        place_name: $(this).val()
+      },
+      success: function(data) {
+        alert('successfully');
+        console.log("Countries", data);
+      }
+    })
+    console.log("changin", $(this).val());
+  })
+</script> -->
