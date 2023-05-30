@@ -59,20 +59,18 @@ placeMarkerAndPanTo = (latLng, map) ->
 highlight_area = (map, bounds) ->
   northEast = bounds.northeast;
   southWest = bounds.southwest;
+
   northWest = new google.maps.LatLng(northEast.lat, southWest.lng);
   southEast = new google.maps.LatLng(southWest.lat, northEast.lng);
-
   northeastLatBounds = northEast.lat;
   northeastLongBounds = northEast.lng;
   southwestlatBounds = southWest.lat;
   southwestLongBounds = southWest.lng;
+
   northwestLatBounds = northWest.lat();
   northwestLongBounds = northWest.lng()
   southEastLatBounds = southEast.lat();
   southEastLongBounds = southEast.lng()
-
-
-
 
   b1 = new google.maps.LatLng(northeastLatBounds, northeastLongBounds);
   b2 = new google.maps.LatLng(southwestlatBounds, southwestLongBounds);
@@ -138,7 +136,7 @@ getAreaDetails = (place_name) ->
         }
   service = new google.maps.places.PlacesService(map);
 
-  geocoder = new google.maps.Geocoder();
+  console.log('aaaaaaaaaa',place_name);
   
   apiUrl = 'https://maps.googleapis.com/maps/api/geocode/json'
   apiKey = 'AIzaSyAYgz93to_KfefAj2f2T85hwqVdPWgr1m0'
